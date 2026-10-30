@@ -22,9 +22,11 @@
 - Ollama version: **same agreed version on all runner laptops**
 - Context size: **8192 tokens**
 - Temperature: **0.2**
-- System prompt: **one shared SOC Analyst system prompt stored in the repository**
+- Seed: **42**
+- System prompt: **no `SYSTEM` line in the Modelfile. Paste this shared SOC Analyst prompt v1.0 into every request file; the request file is the only source of instructions.**
 - Week 1 benchmark-only comparison models: **Mistral 7B** and **Phi-3 Mini**
 - Use identical input, prompt, system prompt, context size, and temperature for all Week 1 benchmark runs.
+- Use identical seed and the same agreed Ollama version for all Week 1 benchmark runs.
 
 ## 3. Request-file template
 
@@ -52,7 +54,9 @@ Copy this into every file in `/ai-requests/`.
 - Ollama version: [agreed version]
 - Context size: 8192
 - Temperature: 0.2
-- Shared system prompt path: [repository-relative path]
+- Seed: 42
+- Modelfile: [repository-relative path; confirm it has no SYSTEM line]
+- Shared SOC prompt: pasted in full below, inside this request file
 - Prompt template version: v1.0
 - Output path: /ai-outputs/[same request filename].md
 
@@ -231,7 +235,9 @@ Append this to every result in `/ai-outputs/`.
 - Ollama version: [version]
 - Context size: 8192
 - Temperature: 0.2
-- System prompt version/path: [path]
+- Seed: 42
+- Shared SOC prompt version: v1.0, pasted in request file
+- Modelfile path/version: [path/version]
 - Prompt template version: v1.0
 - Input files/hashes: [values]
 - Output generated at: [UTC timestamp]
