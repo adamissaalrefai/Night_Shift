@@ -1,0 +1,5 @@
+
+Timestamp: 2026-11-10T08:16:05.402Z | Sensor: FW-NILE-GW (10.10.10.1) | Signature: ET MALWARE Suspicious HTA Outbound TLS Connection | SrcIP: 10.10.10.15 (WS-FIN-01) | SrcPort: 49812 | DstIP: 203.0.113.88 | DstHost: cdn-update-check.net | DstPort: 443 | Proto: TCP
+
+
+UtcTime: 2026-11-10T08:16:05.390Z | Computer: WS-FIN-01.niletech.local | User: NILETECH\sara.ahmed | Image: C:\Windows\System32\mshta.exe | DestinationIp: 203.0.113.88 | DestinationHostname: cdn-update-check.net | DestinationPort: 443

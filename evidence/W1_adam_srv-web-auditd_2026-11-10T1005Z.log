@@ -1,0 +1,2 @@
+
+Timestamp: 2026-11-10T10:05:19.220Z | Host: SRV-WEB-01 (10.10.20.10) | Syscall: execve | User: dev_admin (UID: 1001) | CWD: /home/dev_admin | Command: tar -czf /tmp/.db_dump.tar.gz /var/lib/mysql/niletech_fin_db | ExitCode: 0 (Success)

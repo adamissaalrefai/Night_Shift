@@ -1,0 +1,5 @@
+
+Timestamp: 2026-11-10T09:10:12.000Z | Computer: DC-NILE-01.niletech.local (10.10.20.5) | LogonType: 3 (Network) | TargetUserName: svc_backup | WorkstationName: WS-FIN-01 | SourceNetworkAddress: 10.10.10.15 | AuthenticationPackageName: NTLM
+
+
+Timestamp: 2026-11-10T09:42:50.000Z | Host: SRV-WEB-01 (10.10.20.10) | Process: sshd[4819] | Message: Accepted publickey for dev_admin from 10.10.20.5 port 51244 ssh2

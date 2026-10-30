@@ -1,0 +1,9 @@
+
+UtcTime: 2026-11-10T08:15:22.114Z
+Computer: WS-FIN-01.niletech.local (10.10.10.15)
+User: NILETECH\sara.ahmed
+Image: C:\Windows\System32\mshta.exe
+CommandLine: "C:\Windows\System32\mshta.exe" "C:\Users\sara.ahmed\Downloads\Invoice_Q4_Review.hta"
+ParentImage: C:\Program Files\Microsoft Office\Root\Office16\OUTLOOK.EXE
+ParentCommandLine: "C:\Program Files\Microsoft Office\Root\Office16\OUTLOOK.EXE"
+Hashes: SHA256=e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
