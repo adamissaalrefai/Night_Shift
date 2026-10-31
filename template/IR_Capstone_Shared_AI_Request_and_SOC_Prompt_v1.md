@@ -25,8 +25,7 @@
 - Seed: **42**
 - System prompt: **no `SYSTEM` line in the Modelfile. Paste this shared SOC Analyst prompt v1.0 into every request file; the request file is the only source of instructions.**
 - Week 1 benchmark-only comparison models: **Mistral 7B** and **Phi-3 Mini**
-- Use identical input, prompt, system prompt, context size, and temperature for all Week 1 benchmark runs.
-- Use identical seed and the same agreed Ollama version for all Week 1 benchmark runs.
+- Use identical input, pasted SOC prompt, context size, temperature, seed, and agreed Ollama version for every directly compared Week 1 run.
 
 ## 3. Request-file template
 

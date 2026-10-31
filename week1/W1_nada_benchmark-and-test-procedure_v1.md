@@ -2,7 +2,7 @@
 
 **Owner:** Nada - Playbook, Detection and Reporting Lead  
 **Version:** v1.0  
-**Status:** Ready for execution; result fields await runner outputs and Mina's scoring.  
+**Status:** Execution inventory updated 2026-10-31; reviewer scoring remains pending.
 **Scope:** Week 1 only
 
 ## Objective
@@ -29,11 +29,11 @@ The scenario file is background context only. The test data must be synthetic/pu
 
 | ID | Task | Required output check | Benchmark runner/model |
 |---|---|---|---|
-| W1-T01 | Log analysis | Timeline, evidence references, confidence, data gaps | Mahmoud: Llama + Mistral; Adam: Phi-3 |
-| W1-T02 | Alert triage | Disposition, severity, evidence for/against, escalation decision | Mahmoud: Llama + Mistral; Adam: Phi-3 |
-| W1-T03 | Threat summarization | Confirmed/suspected/unknown separation, scope, prioritized actions | Mahmoud: Llama + Mistral; Adam: Phi-3 |
-| W1-T04 | Report writing | Required headings, evidence traceability, no unsupported completion claims | Mahmoud: Llama + Mistral; Adam: Phi-3 |
-| W1-T05 | IOC extraction | Deduplicated IOCs, correct status, source references | Mahmoud: Llama + Mistral; Adam: Phi-3 |
+| W1-T01 | Log analysis | Timeline, evidence references, confidence, data gaps | Mahmoud: comparable Llama + Mistral; Adam: separate Phi-3 trials |
+| W1-T02 | Alert triage | Disposition, severity, evidence for/against, escalation decision | Mahmoud: comparable Llama + Mistral; Adam: separate Phi-3 trials |
+| W1-T03 | Threat summarization | Confirmed/suspected/unknown separation, scope, prioritized actions | Mahmoud: comparable Llama + Mistral; Adam: separate Phi-3 trials |
+| W1-T04 | Report writing | Required headings, evidence traceability, no unsupported completion claims | Mahmoud: comparable Llama + Mistral; Adam: separate Phi-3 trials |
+| W1-T05 | IOC extraction | Deduplicated IOCs, correct status, source references | Mahmoud: comparable Llama + Mistral; Adam: separate Phi-3 trials |
 
 ## Procedure
 
@@ -57,21 +57,29 @@ The scenario file is background context only. The test data must be synthetic/pu
 
 Automatic failure conditions: invented evidence, treating scenario context as observed evidence, missing required output format, or disclosure of sensitive data.
 
+## Execution and comparison status
+
+Mahmoud's Llama/Mistral pairs are directly comparable: for every task, the paired requests have the same embedded evidence and prompt body. Adam's Phi-3 work covers all five task types, but uses trial inputs and request IDs that differ from Mahmoud's set. It is reviewed separately and is not used for a three-model ranking.
+
+| Comparison set | Tasks covered | Inputs and prompt matched within set | Status |
+|---|---:|---|---|
+| Llama 3.1 8B vs Mistral 7B | 5 of 5 | Yes, verified from request content | Comparable execution set; scoring pending |
+| Phi-3 Mini trials | 5 of 5 | No match to Mahmoud's inputs | Separate trial evaluation; Evaluation Records and scoring pending |
+
 ## Benchmark result sheet
 
 | Test ID | Model | Runner | Output path | Accuracy (1-5) | Completeness (1-5) | Usefulness (1-5) | Pass/fail | Unsupported claims | Reviewer | Status |
 |---|---|---|---|---:|---:|---:|---|---:|---|---|
-| W1-T01 | Llama 3.1 8B | Mahmoud | `[awaiting output]` | `[awaiting Mina]` | `[awaiting Mina]` | `[awaiting Mina]` | `[awaiting Mina]` | `[awaiting Mina]` | Mina | Pending |
-| W1-T01 | Mistral 7B | Mahmoud | `[awaiting output]` | `[awaiting Mina]` | `[awaiting Mina]` | `[awaiting Mina]` | `[awaiting Mina]` | `[awaiting Mina]` | Mina | Pending |
-| W1-T01 | Phi-3 Mini | Adam | `[awaiting output]` | `[awaiting Mina]` | `[awaiting Mina]` | `[awaiting Mina]` | `[awaiting Mina]` | Mina | Pending |
-| W1-T02 | Llama 3.1 8B | Mahmoud | `[awaiting output]` | `[awaiting Mina]` | `[awaiting Mina]` | `[awaiting Mina]` | `[awaiting Mina]` | Mina | Pending |
-| W1-T02 | Mistral 7B | Mahmoud | `[awaiting output]` | `[awaiting Mina]` | `[awaiting Mina]` | `[awaiting Mina]` | `[awaiting Mina]` | Mina | Pending |
-| W1-T02 | Phi-3 Mini | Adam | `[awaiting output]` | `[awaiting Mina]` | `[awaiting Mina]` | `[awaiting Mina]` | `[awaiting Mina]` | Mina | Pending |
-| W1-T03 to W1-T05 | All required models | Assigned runner | `[awaiting outputs]` | `[awaiting Mina]` | `[awaiting Mina]` | `[awaiting Mina]` | `[awaiting Mina]` | `[awaiting Mina]` | Mina | Pending |
+| TC-01 | Llama 3.1 8B | Mahmoud | `origin/week1/mahmoud-benchmark:outputs/Ai-Outputs/20261028-w1-log-analysis-llama31.md` | Pending | Pending | Pending | Pending | Pending | Mina/Nada | Pending |
+| TC-01 | Mistral 7B | Mahmoud | `origin/week1/mahmoud-benchmark:outputs/Ai-Outputs/20261028-w1-log-analysis-mistral7b.md` | Pending | Pending | Pending | Pending | Pending | Mina/Nada | Pending |
+| TC-02 | Llama 3.1 8B | Mahmoud | `origin/week1/mahmoud-benchmark:outputs/Ai-Outputs/20261028-w1-alert-triage-llama31.md` | Pending | Pending | Pending | Pending | Pending | Mina/Nada | Pending |
+| TC-02 | Mistral 7B | Mahmoud | `origin/week1/mahmoud-benchmark:outputs/Ai-Outputs/20261028-w1-alert-triage-mistral7b.md` | Pending | Pending | Pending | Pending | Pending | Mina/Nada | Pending |
+| TC-03 to TC-05 | Llama 3.1 8B and Mistral 7B | Mahmoud | See `W1_nada_week1-benchmark-registry_v1.md` | Pending | Pending | Pending | Pending | Pending | Mina/Nada | Pending |
+| Phi-3 trials | Phi-3 Mini | Adam | See `W1_nada_week1-benchmark-registry_v1.md` | Pending | Pending | Pending | Not directly comparable | Pending | Mina/Nada | Pending |
 
 ## Completion criteria
 
-- All 15 benchmark outputs exist with matching request/output IDs.
-- Every output contains an Evaluation Record.
-- Mina has scored each output against the final answer key.
-- Nada has written the accuracy review and Mina has cross-reviewed it.
+- Ten matching Llama/Mistral request-output pairs exist and have been scored against finalized answer-key references.
+- Phi-3 trial outputs are scored separately and contain Evaluation Records.
+- A three-model ranking is published only after all three models run the same five requests.
+- Mina cross-reviews the final accuracy review.

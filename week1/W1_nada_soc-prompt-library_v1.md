@@ -1,8 +1,8 @@
 # Week 1 - Consolidated SOC Prompt Library
 
 **Owner:** Nada - Playbook, Detection and Reporting Lead  
-**Version:** v1.0  
-**Status:** Integration baseline. The shared prompt is complete; task-prompt contributions await their owners.  
+**Version:** v1.1
+**Status:** Consolidated library; prompt sources received and catalogued. Final cross-review remains pending.
 **Authoritative common prompt:** `template/IR_Capstone_Shared_AI_Request_and_SOC_Prompt_v1.md`
 
 ## Use rules
@@ -17,10 +17,10 @@
 
 | Library ID | Task | Owner | Required contribution | Integration status |
 |---|---|---|---|---|
-| PL-01 | Log analysis | Adam | 3-5 tested prompts | Received on `Adam/Week1`; pending mandatory Evaluation Records and quality review |
-| PL-02 | Alert triage | Adam | 3-5 tested prompts | Received on `Adam/Week1`; pending mandatory Evaluation Records and quality review |
-| PL-03 | Threat summarization | Nader | Tested prompt(s) | Awaiting Nader's reviewed contribution |
-| PL-04 | Report writing | Nader | Tested prompt(s) | Awaiting Nader's reviewed contribution |
+| PL-01 | Log analysis | Adam | Five tested Phi-3 prompt trials | Catalogued from `origin/Adam/Week1:week1/Prompts/phi3_log_analysis_prompts/` |
+| PL-02 | Alert triage | Adam | Three tested Phi-3 prompt trials | Catalogued from `origin/Adam/Week1:week1/Prompts/phi3_alert_triage_prompts/` |
+| PL-03 | Threat summarization | Nader | One shared task prompt | Integrated from `week1/nader-threat-summarization-prompt.md` |
+| PL-04 | Report writing | Nader | One shared task prompt | Integrated from `week1/nader-report-writing-prompt.md` |
 | PL-05 | IOC extraction | Nada | Output format in shared template | Ready in v1.0 |
 
 ## Integration checklist
@@ -31,9 +31,9 @@
 - [x] Week 1 reproducibility settings recorded.
 - [x] Adam's log-analysis prompt set received on remote branch.
 - [x] Adam's alert-triage prompt set received on remote branch.
-- [ ] Adam adds Evaluation Records to matching outputs; Nada completes quality review before integration.
-- [ ] Nader's reviewed threat-summary prompt set received and inserted.
-- [ ] Nader's reviewed report-writing prompt set received and inserted.
+- [ ] Adam adds Evaluation Records to matching outputs; they remain trial outputs until reviewed.
+- [x] Nader's threat-summary prompt received and integrated.
+- [x] Nader's report-writing prompt received and integrated.
 - [ ] Team confirms the final library has no duplicate or conflicting instructions.
 - [ ] Mina cross-reviews this consolidated library.
 
@@ -51,6 +51,20 @@ Each contribution must include:
 ## IOC extraction entry - PL-05
 
 Use output format **E. IOC EXTRACTION** in the shared SOC Analyst prompt. The model must return a deduplicated IOC table, distinguish `observed` from `scenario_context_only`, preserve evidence references, and state extraction limitations. No additional instructions are needed beyond the shared prompt unless a test case specifies its own expected IOC types.
+
+## Integrated task modules
+
+The full common prompt and required output formats remain authoritative in `template/IR_Capstone_Shared_AI_Request_and_SOC_Prompt_v1.md`. The following task modules are used with that common prompt, not instead of it.
+
+| Task | Module source | Required focus |
+|---|---|---|
+| Log analysis | Adam's five prompt trials | Evidence-referenced timeline, findings, IOCs, data gaps, and P1-P3 actions. |
+| Alert triage | Adam's three prompt trials | Disposition, severity, supporting/weakening evidence, escalation, and confidence. |
+| Threat summarization | Nader's prompt | Maximum 150-word summary; separate confirmed, suspected, scenario-only, and unknown activity. |
+| Report writing | Nader's prompt | Evidence-scoped report with confirmed versus potential impact and no completed-action claims. |
+| IOC extraction | Shared template output E | Deduplicated IOCs; observed versus scenario-context-only status. |
+
+Adam's trial prompts remain useful examples, but their outputs require Evaluation Records before they can be treated as reviewed benchmark evidence.
 
 ## Release conditions
 

@@ -1,9 +1,9 @@
 # Week 1 - Intake Review of Runner Branches
 
 **Reviewer:** Nada - Playbook, Detection and Reporting Lead  
-**Review date:** 2026-10-30 UTC  
+**Review date:** 2026-10-31 UTC
 **Reviewed branches:** `origin/week1/mahmoud-benchmark`, `origin/Adam/Week1`  
-**Decision:** Do not merge either branch into the shared Week 1 baseline until the issues below are corrected or explicitly accepted by the team.
+**Decision:** Intake rechecked after updated runner pushes. Keep raw artifacts on their source branches until cross-review; use the benchmark registry for consolidated tracking.
 
 ## Mahmoud branch review
 
@@ -19,38 +19,38 @@
 - The five required task types are covered: log analysis, alert triage, threat summarization, report writing, and IOC extraction.
 - All ten output files include an Evaluation Record.
 
-### Required corrections before final acceptance
+### Remaining conditions before final acceptance
 
-1. Commit the synthetic evidence files referenced in each request, or revise the evidence manifest so it truthfully states that the evidence exists only inline in the request. Current `/evidence/...` references do not resolve in the branch.
-2. Do not mark `Human reviewer decision: Accept` before Nada/Mina have reviewed the output. Change to `Pending cross-review`.
-3. Do not mark all checks `Pass` before comparison with Mina's answer key. The runner may record execution metadata, but evidence accuracy and unsupported-claim counts require validation.
-4. Align the request/output directory names with the team-agreed lowercase `/ai-requests` and `/ai-outputs` paths, or document a unanimous folder-name decision before merge.
+1. The referenced synthetic evidence files are now present in the branch.
+2. Human-review fields are now marked `Pending`, which is correct until review is complete.
+3. Runner pre-check `Pass` entries are not final validation. Mina's answer-key scoring must determine evidence accuracy, unsupported-claim counts, and final acceptance.
+4. The branch still uses `Requests/Ai-Requests` and `outputs/Ai-Outputs`, not the agreed lowercase queue paths. Preserve the source artifacts; use the shared naming convention for future files.
 
 ## Adam branch review
 
 ### Received
 
-- Five log-analysis prompts and three alert-triage prompts, each with Llama and Phi-3 versions.
-- Eight Llama outputs and eight Phi-3 outputs covering log analysis and alert triage.
+- Five log-analysis prompts, three alert-triage prompts, and one Phi-3 trial each for threat summarization, report writing, and IOC extraction.
+- Phi-3 trials now cover all five Week 1 task types.
 
 ### Blocking issues
 
-1. All 16 output files are missing the mandatory Evaluation Record. They cannot be scored or accepted as Week 1 benchmark evidence until that record is appended.
-2. Adam's submitted work covers only two task types. Phi-3 benchmark coverage is still missing threat summarization, report writing, and IOC extraction.
-3. The sampled Phi-3 log-analysis output materially misread the evidence: it described a successful `dev_admin` login as coming from an external IP although the source log states `10.10.10.15`; it used unsupported/incorrect ATT&CK mapping `T1008`; and it claimed no unknowns. Record these in Mina's hallucination log and score the output accordingly.
-4. The sampled output did not use the required structured tables or evidence-reference format consistently.
+1. All Phi-3 output files still lack the mandatory Evaluation Record. They cannot be accepted as reviewed benchmark evidence until a reviewer appends it.
+2. Phi-3 trial inputs differ from Mahmoud's TC-01 through TC-05 inputs. They must remain a separate trial set, not a direct three-model benchmark.
+3. The sampled Phi-3 log-analysis output materially misread the evidence: it described a successful `dev_admin` login as external although the source log states `10.10.10.15`; it used unsupported/incorrect ATT&CK mapping `T1008`; and it claimed no unknowns. Record these in Mina's hallucination log and score the output accordingly.
+4. The sampled output did not consistently use the required structured tables or evidence-reference format.
 
 ## Integration status
 
 | Input | Status | Next owner |
 |---|---|---|
-| Llama/Mistral benchmark execution | Received; validation pending | Mina and Nada |
-| Phi-3 benchmark execution | Partial; three task types missing | Adam |
-| Log-analysis and alert-triage prompt contributions | Received; quality/integration pending | Nada after Adam's output corrections |
-| Threat-summary/report-writing prompt contributions | Not received | Nader |
+| Llama/Mistral benchmark execution | Received; comparable five-task set, validation pending | Mina and Nada |
+| Phi-3 execution | Received for all five task types; separate trial set | Nada/Mina |
+| Log-analysis and alert-triage prompt contributions | Received; catalogued | Nada |
+| Threat-summary/report-writing prompt contributions | Received and integrated | Nada |
 | IOC extraction prompt contribution | Shared template provides output format | Nada |
-| Answer key, scoring, and hallucination log | Not received | Mina |
+| Answer key, scoring, and hallucination log | Received as draft/framework; scoring and dataset references pending | Mina |
 
 ## Merge recommendation
 
-Keep the branches separate. Accept only corrected files through pull requests after Mina's scoring and the required cross-reviews. Do not merge an unreviewed benchmark result into `main`.
+Keep raw runner artifacts on their source branches. Use `W1_nada_week1-benchmark-registry_v1.md` as the consolidated record. Do not state a final model ranking before Mina's scoring and cross-review.
