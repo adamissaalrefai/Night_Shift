@@ -1,0 +1,13 @@
+ALERT ID: SIEM-3107
+Time (UTC): 2026-11-10T09:30:02Z
+Rule: Encoded PowerShell command execution
+Rule default severity: High
+Host: DC-NILE-01 (10.10.20.5)
+Account: svc_backup
+Process: powershell.exe -NoProfile -NonInteractive -EncodedCommand JgAgACcAQwA6AFwAUwBjAHIAaQBwAHQAcwBcAGIAYQBjAGsAdQBwAC0AbgBpAGcAaAB0AGwAeQAuAHAAcwAxACcA
+Parent process: svchost.exe -k netsvcs -p -s Schedule
+Decoded command: & 'C:\Scripts\backup-nightly.ps1'
+Scheduled task: \NileTech\NightlyBackup (created by NILETECH\Administrator)
+Script file: C:\Scripts\backup-nightly.ps1, SHA-256 unchanged since the baseline recorded on 2026-10-27
+History: the same rule fired on the same host, account and command on 14 of the last 14 days, between 09:29:57Z and 09:30:07Z
+Network: no connections from this process outside 10.10.20.0/24
