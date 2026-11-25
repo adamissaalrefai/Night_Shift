@@ -1,13 +1,12 @@
-# Week 2 — Nader Local LLM Run Sheet (Draft)
+# Week 2 — Nader Local LLM Run Sheet
 
 - **Project:** AI-Assisted SOC Automation & Full Incident Response
   Capstone
 - **Owner / runner:** Nader — Network Operator
-- **Version:** v1.0
+- **Version:** v1.1
 - **Prepared:** 2026-11-25
-- **Request ID (proposed):** `20261125-w2-nader-network-log-analysis`
-- **Status:** Draft for local execution; not yet a Nada-issued queue
-  item and not executed
+- **Request ID:** `20261125-w2-nader-network-log-analysis`
+- **Status:** Local run completed; exploratory run; human review pending; not a Nada-issued queue item
 
 > This run sheet is prepared for Nader's assigned network-analysis work.
 > No request assigned to Nader by Nada was found in the repository
@@ -31,15 +30,12 @@
 | Temperature              | 0.2                                                                                                                                                             |
 | Seed                     | 42                                                                                                                                                              |
 | Modelfile SYSTEM line    | None                                                                                                                                                            |
-| Ollama version           | **UNCONFIRMED — team-wide version must be agreed before execution**                                                                                             |
+| Ollama version           | `0.40.18` (actual local run; team-wide approval NOT VERIFIED)                                                                                             |
 | Expected output filename | `20261125-w2-nader-network-log-analysis.md`                                                                                                                     |
 | Cross-reviewer           | Adam                                                                                                                                                            |
 | Second validator         | Nada (pending)                                                                                                                                                  |
 
-**Ollama version note:** Nader's offline privacy test notes record
-`0.40.13`, while Mahmoud's Week 2 outputs record `0.40.11`. The project
-requires one agreed version for all runners. Do not choose one by
-assumption.
+**Ollama version note:** The actual local run used `0.40.18`. Nader's offline privacy test notes record `0.40.13`, while Mahmoud's Week 2 output records `0.40.11`. Team-wide approval of `0.40.18` is not verified; the team must confirm one shared version before treating the runs as standardized.
 
 ## 2. Evidence Manifest
 
@@ -84,10 +80,7 @@ not native raw Zeek/Suricata exports.
 
 ## 4. Prompt for Local Llama
 
-Paste the following prompt into the approved local Llama model after the
-team confirms the Ollama version. The project kickoff specifies no
-`SYSTEM` line in the Modelfile; the request prompt is the source of
-instructions.
+The following is the exact request prompt associated with the completed local run. The run used Ollama `0.40.18`; team-wide version approval remains unverified. The project kickoff specifies no `SYSTEM` line in the Modelfile.
 
 ``` text
 You are a senior SOC and Incident Response analyst supporting a controlled academic lab simulation.
@@ -180,47 +173,40 @@ SELECTED OUTPUT FORMAT F — DETECTION IMPROVEMENT
 Return only formats A, E, and F. Use concise, evidence-based language. Do not fill missing data with assumptions.
 ```
 
-## 5. Output and Evaluation Record
+## 5. Actual Output and Evaluation Record
 
-The output filename must match the request ID exactly:
+The local run completed successfully. The original model response is preserved verbatim at:
 
-`20261125-w2-nader-network-log-analysis.md`
+`ai-outputs/20261125-w2-nader-network-log-analysis.md`
 
-Do not create or label an AI output until the local Llama run has
-actually completed. Append and complete the following record after the
-run:
+The execution metadata is also preserved separately at:
 
-``` markdown
-## Evaluation Record
+`ai-outputs/20261125-w2-nader-network-log-analysis-metadata.txt`
 
-- Request ID: 20261125-w2-nader-network-log-analysis
-- Model/version: [record exact model tag]
-- Ollama version: [team-approved version]
-- Context size: 8192
-- Temperature: 0.2
-- Seed: 42
-- Modelfile SYSTEM: None
-- Input files/hashes: [copy the three SHA-256 values above]
-- Output generated at: [UTC ISO 8601]
-- Execution duration: [measured value]
+Recorded run details:
 
-| Evaluation criterion | Result | Notes |
-|---|---|---|
-| Expected output format followed | Pass/Fail | |
-| Required findings included | Pass/Fail | |
-| Evidence references accurate | Pass/Fail | |
-| Unsupported claims | Count | |
-| Scenario treated as evidence incorrectly | Yes/No | |
-| IOC extraction accuracy | Value / N/A | |
-| Human reviewer decision | Accept/Revise | |
-| Reviewer and review date | Name / UTC date | |
-```
+- Model tag: `llama3.1:8b`
+- Ollama version: `0.40.18` (team-wide approval not verified)
+- Quantization: `Q4_K_M` (recorded by runner; independent model-info evidence was not included)
+- Context size: `8192`
+- Temperature: `0.2`
+- Seed: `42`
+- Modelfile SYSTEM: `None`
+- Started UTC: `2026-11-25T17:46:40.8005242Z`
+- Completed UTC: `2026-11-25T17:59:49.3658028Z`
+- Duration: `788.45` seconds
+- Prompt tokens: `3608`
+- Output tokens: `2051`
+
+Preliminary QA is recorded separately in `week2/W2_nader_llm-evaluation_v1.md`.
+
+**Preliminary disposition: REVISE.** The model response must remain unchanged as the raw output. Do not present it as an approved incident report. Adam's cross-review and Nada's second validation are pending.
 
 ## 6. Queue and Review Status
 
 - No Nader-assigned Week 2 request from Nada was found in the repository
-  branches inspected. This run sheet is not a substitute for a
-  Nada-authored queue item.
+  branches inspected. The archived request file is runner-prepared run
+  documentation, not a Nada-authored or Nada-approved queue item.
 - Adam is the assigned cross-reviewer for Nader under the team review
   circle.
 - Nada is the second validator for the network results under the Week 2

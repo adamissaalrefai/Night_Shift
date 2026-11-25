@@ -6,8 +6,7 @@
 - **Version:** v1.0
 - **Prepared:** 2026-11-25
 - **Time standard:** UTC / ISO 8601
-- **Status:** Analyst-prepared evidence review; local Llama run and
-  cross-review are pending
+- **Status:** Analyst-prepared evidence review; local Llama run completed; Adam cross-review and Nada second validation pending
 - **Source evidence commit:** `7b34d77da5dd4713a7a81dc7f02aae4fa61707eb`
   on `week1/mahmoud-benchmark`
 
@@ -310,22 +309,20 @@ action is recorded as completed in the supplied evidence.**
 | Timeline                                  | Prepared                                  | Uses the exact timestamps in the supplied files                                              |
 | Cross-source correlation                  | Prepared                                  | Windows logon and PowerShell notes used as corroboration                                     |
 | Detection suggestions                     | Proposed                                  | Not deployed or tested                                                                       |
-| Local Llama 3.1 run                       | Pending                                   | Must be run locally under the team's agreed settings                                         |
+| Local Llama 3.1 run                       | Completed                                 | Llama 3.1 8B Q4_K_M; Ollama 0.40.18; team-wide version approval not verified                 |
 | Nada request queue                        | Not found in reviewed repository branches | No Nader-assigned Week 2 request from Nada was present in the inspected repository snapshots |
-| Evaluation Record / hallucination scoring | Pending                                   | Requires the actual local Llama output and claim-by-claim validation                         |
+| Evaluation Record / hallucination scoring | Preliminary QA complete — Revise          | Verbatim output preserved; see ai-outputs/ and week2/W2_nader_llm-evaluation_v1.md           |
 | Cross-review by Adam                      | Pending                                   | Per the team cross-review circle                                                             |
 | Second validation by Nada                 | Pending                                   | Per Week 2 validation checklist                                                              |
 
-### Model environment items to confirm before the run
+### Recorded model environment and remaining standardization check
 
-- Nader's Week 1 offline test notes record Ollama `0.40.13`.
+- Nader's Week 1 offline privacy test notes record Ollama `0.40.13`.
 - Mahmoud's Week 2 output records Ollama `0.40.11`.
-- The project requires one agreed Ollama version for all runners; no
-  team-wide decision is evidenced in the reviewed files. Do not silently
-  choose one.
-- Use Llama 3.1 8B Instruct Q4_K_M, context 8192, temperature 0.2, seed
-  42, and no `SYSTEM` line in the Modelfile, as specified by the
-  kickoff/work-plan rules.
+- The completed local run used Ollama `0.40.18`; team-wide approval is not verified. The team must confirm one shared version before treating all runner outputs as standardized.
+- Actual run settings: Llama 3.1 8B Instruct Q4_K_M, context 8192, temperature 0.2, seed 42, and no `SYSTEM` line in the Modelfile.
+- Verbatim model output: `ai-outputs/20261125-w2-nader-network-log-analysis.md`.
+- Preliminary model QA: `week2/W2_nader_llm-evaluation_v1.md` (Revise; Adam/Nada review pending).
 
 ------------------------------------------------------------------------
 
@@ -339,3 +336,21 @@ action is recorded as completed in the supplied evidence.**
   v1.0](https://github.com/adamissaalrefai/Night_Shift/blob/5e0a1206a2f0ba0526818fe5b06c4c5939547a82/week1/W1_mina_answer-key_v1.md)
 - [Shared AI Request and SOC Prompt Standard
   v1.0](https://github.com/adamissaalrefai/Night_Shift/blob/7b34d77da5dd4713a7a81dc7f02aae4fa61707eb/template/IR_Capstone_Shared_AI_Request_and_SOC_Prompt_v1.md)
+
+
+## 11. Local LLM Run and Review Artifacts
+
+The local Llama run has now been completed. The original model response is preserved verbatim, with the run metadata and Evaluation Record appended, at:
+
+- `ai-outputs/20261125-w2-nader-network-log-analysis.md`
+- `ai-outputs/20261125-w2-nader-network-log-analysis-metadata.txt`
+
+The runner-prepared request and exact prompt are archived at:
+
+- `ai-requests/20261125-w2-nader-network-log-analysis.md`
+
+The separate preliminary QA report is:
+
+- `week2/W2_nader_llm-evaluation_v1.md`
+
+**Review status:** Preliminary disposition is Revise. Adam's cross-review and Nada's second validation remain pending. The request archive is not represented as a Nada-authored queue item because no Nader-assigned Week 2 request from Nada was found in the reviewed repository snapshots.

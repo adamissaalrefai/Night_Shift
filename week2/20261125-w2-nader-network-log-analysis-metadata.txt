@@ -1,0 +1,20 @@
+Request ID: 20261125-w2-nader-network-log-analysis
+Model: llama3.1:8b
+Ollama version: ollama version is 0.40.18
+Team-wide version approval: NOT VERIFIED; runner elected to proceed with installed version
+Quantization: Q4_K_M (verified from model details or explicitly confirmed by runner)
+Context size: 8192
+Temperature: 0.2
+Seed: 42
+Custom system prompt: None
+Started UTC: 2026-11-25T17:46:40.8005242Z
+Completed UTC: 2026-11-25T17:59:49.3658028Z
+Measured duration (seconds): 788.45
+Prompt token count: 3608
+Output token count: 2051
+Ollama total duration (nanoseconds): 788346095800
+
+Input SHA-256:
+W2_nader_firewall-proxy-exfil_2026-11-06T0900Z.log : 7bab2e24edc46212e2658f4c5b0831e5b23fadaae3f8f876babf01ea6bf930f7
+W2_nader_suricata-ids-alerts_2026-11-06T0900Z.json : d78c2481b4b2a1f381ec1df55876e801dedab76d98461feeff402e3276ed6808
+W2_nader_zeek-conn-flow_2026-11-06T0900Z.log : 88b6e5565e7ef7fc152cc43610907e74d1626add11f02c602390ca3fe865dd7d
